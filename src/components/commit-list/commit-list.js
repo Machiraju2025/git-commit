@@ -5,35 +5,33 @@ import Commit from "../commit/commit";
 import CountDown from "../count-down/count-down";
 
 async function getCommits({ owner, repo, apiKey }) {
-  try {
-    const octokit = new Octokit({
-      auth: apiKey,
-    });
-
-    const { data } = await octokit.request(
-      `GET /repos/${owner}/${repo}/commits`,
-      {
+ 
+       const octokit = new Octokit({
+        auth: apiKey,
+        });
+        
+        const { data } = await octokit.request(
+        `GET /repos/${owner}/${repo}/commits`,
+        {
         owner: "OWNER",
         repo: "REPO",
-      }
-    );
-    console.log(data[0]);
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
+        }
+        );
+        console.log(data[0]);
+        return data;
+        }
+  
 
 export default function CommitList({ owner, repo, apiKey }) {
   const [commits, setCommits] = useState([]);
 
   useEffect(() => {
     console.log("useEffect commit List");
-    getCommits({ owner, repo, apiKey }).then((data) => setCommits(data));
+    getCommits({ owner, repo, apiKey }).then((data) => setCommits(data)).catch(console.error);
   }, [apiKey, owner, repo]);
 
   const refresh = () => {
-    getCommits({ owner, repo, apiKey }).then((data) => setCommits(data));
+    getCommits({ owner, repo, apiKey }).then((data) => setCommits(data)).catch(console.error);
   };
 
   return (
