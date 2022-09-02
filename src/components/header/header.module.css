@@ -1,0 +1,23 @@
+.header {
+    background-color: #282c34;
+    box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 12%);
+    margin-bottom: 20px;
+    padding: 10px;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+  }
+  .h1,
+  .a {
+    text-align: center;
+    color: #61dafb;
+  }
+  .h1 {
+    margin: 0;
+    text-transform: capitalize;
+  }
+  .a {
+    display: block;
+    margin-block: 10px;
+  }
