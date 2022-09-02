@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/header/header";
+import ApiKeyFrom from "./components/api-key-form/api-key-form";
+import CommitList from "./components/commit-list/commit-list";
+
+const gitRepositroy = "https://github.com/Machiraju2025/git-commit";
+const owner = "Machiraju2025";
+const repo = "git-commit";
 
 function App() {
+  const [apiKey, setApiKey] = useState(() => {
+    const key = localStorage.getItem("api-key");
+    return key;
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header url={gitRepositroy} />
+      <main className="main">
+        {apiKey ? (
+          <CommitList owner={owner} repo={repo} apiKey={apiKey} />
+        ) : (
+          <ApiKeyFrom setApiKey={setApiKey} />
+        )}
+      </main>
+    </>
   );
 }
 

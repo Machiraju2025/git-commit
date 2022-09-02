@@ -1,7 +1,6 @@
 import styles from "./commit-list.module.css";
 import { useEffect, useState } from "react";
 import { Octokit } from "@octokit/core";
-
 import Commit from "../commit/commit";
 import CountDown from "../count-down/count-down";
 
