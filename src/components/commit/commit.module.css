@@ -1,0 +1,21 @@
+.container {
+    padding: 10px 10px 20px;
+    background-color: #282c34;
+    box-shadow: 0 0.3rem 0.8rem rgba(97, 218, 251, 10%);
+    margin-block: 20px;
+    border-radius: 4px;
+  }
+  .container:hover {
+    background-color: #384152;
+  }
+  .a {
+    color: #61dafb;
+    text-decoration: none;
+  }
+  
+  .h2 {
+    font-size: 1.2rem;
+  }
+  .bold {
+    font-weight: bold;
+  }
